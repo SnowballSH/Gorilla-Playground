@@ -16,11 +16,21 @@ hello("world")
 `.trim() + "\n"
 );
 
+const go = new Go();
+WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then(
+  (result) => {
+    go.run(result.instance);
+  }
+);
+
 function submit() {
-  code = encodeURIComponent(cm.getValue());
+  code = cm.getValue();
+  /*
   fetch(`https://gorilla.snowballsh.repl.co/${code}`)
     .then((response) => response.text())
     .then((data) => (document.getElementById("display").value = data));
+    */
+  document.getElementById("display").value = runGorilla(code);
 }
 
 cm.setSize("100%", 400);
