@@ -2,4 +2,9 @@
 
 Play Gorilla Programming Language on web
 
-Current support version: `0.3.1`
+Current support version: Latest
+
+Current engine:
+
+  - Compiler: WASM
+  - Engine: Interpreting
