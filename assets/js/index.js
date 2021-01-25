@@ -34,3 +34,7 @@ function submit() {
 }
 
 cm.setSize("100%", 400);
+
+// Add a warning before reloading so that you don't accidentally lose your code
+// https://stackoverflow.com/a/1119324/12101554
+window.onbeforeunload = () => true;
