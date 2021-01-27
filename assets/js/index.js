@@ -96,3 +96,7 @@ function selectTheme() {
 $(document).ready(function () {
   $("select").on("change", selectTheme);
 });
+
+// Add a warning before reloading so that you don't accidentally lose your code
+// https://stackoverflow.com/a/1119324/12101554
+window.onbeforeunload = () => true;
