@@ -10,7 +10,7 @@ CodeMirror.defineSimpleMode("gorilla", {
       token: "keyword",
     },
     {
-      regex: /(?:display|len)\b/,
+      regex: /(?:print|len|input)\b/,
       token: "variable-3",
     },
     { regex: /true|false|null/, token: "atom" },
