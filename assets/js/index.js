@@ -1,6 +1,6 @@
 CodeMirror.defineSimpleMode("gorilla", {
   start: [
-    { regex: /"(?:[^\\]|\\.)*?(?:"|$)/, token: "string" },
+    { regex: /"[\s\S]*?"/, token: "string" },
     {
       regex: /(func)(\s+)([\w$]+)/,
       token: ["keyword", null, "variable"],
@@ -15,19 +15,19 @@ CodeMirror.defineSimpleMode("gorilla", {
     },
     { regex: /true|false|null/, token: "atom" },
     {
-      regex: /0x[a-f\d]+|[-+]?(?:\.\d+|\d+\.?\d*)(?:e[-+]?\d+)?/i,
+      regex: /[-+]?(?:\d+)/i,
       token: "number",
     },
     { regex: /#.*/, token: "comment" },
     { regex: /[-+\/*=<>!]+/, token: "operator" },
     { regex: /[\{\[\(]/, indent: true },
     { regex: /[\}\]\)]/, dedent: true },
-    { regex: /([\w$]+)(\()/, token: ["variable", null] },
-    { regex: /[\w$]+/, token: "variable-2" },
+    { regex: /([\w]+)(\()/, token: ["variable", null] },
+    { regex: /[\w]+/, token: "variable-2" },
   ],
   meta: {
     dontIndentStates: ["comment"],
-    lineComment: "//",
+    lineComment: "#",
   },
 });
 
