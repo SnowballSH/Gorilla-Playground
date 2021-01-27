@@ -42,9 +42,9 @@ let cm = new CodeMirror.fromTextArea(document.getElementById("editor"), {
 
 cm.setValue(
   `
-func hello(name) {
-  display("Hello, " + name + "!")
-}
+func hello(name)
+    print("Hello, " + name + "!")
+
 hello("world")
 `.trim() + "\n"
 );
@@ -97,6 +97,4 @@ $(document).ready(function () {
   $("select").on("change", selectTheme);
 });
 
-// Add a warning before reloading so that you don't accidentally lose your code
-// https://stackoverflow.com/a/1119324/12101554
-window.onbeforeunload = () => true;
+window.onbeforeunload = () => cm.getValue().trim().length() > 0;
