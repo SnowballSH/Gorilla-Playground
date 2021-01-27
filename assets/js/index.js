@@ -1,6 +1,6 @@
 CodeMirror.defineSimpleMode("gorilla", {
   start: [
-    { regex: /"(?:[^\\]|\\.)*?"/s, token: "string" },
+    { regex: /".*?"/s, token: "string" },
     {
       regex: /(func)(\s+)([\w$]+)/,
       token: ["keyword", null, "variable"],
