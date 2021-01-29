@@ -19,7 +19,7 @@ CodeMirror.defineSimpleMode("gorilla", {
       token: "number",
     },
     { regex: /#.*/, token: "comment" },
-    { regex: /[-+\/*=<>!]+/, token: "operator" },
+    { regex: /[-+\/*=<>!\|&]+/, token: "operator" },
     { regex: /[\{\[\(]/, indent: true },
     { regex: /[\}\]\)]/, dedent: true },
     { regex: /([\w]+)(\()/, token: ["variable", null] },
