@@ -15,7 +15,7 @@ CodeMirror.defineSimpleMode("gorilla", {
     },
     { regex: /true|false|null/, token: "atom" },
     {
-      regex: /[-+]?(?:\d+)/i,
+      regex: /[-+]?(?:\d+(\.\d*)?)/i,
       token: "number",
     },
     { regex: /#.*/, token: "comment" },
