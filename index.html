@@ -109,18 +109,25 @@
       "
       readonly=""
     ></textarea>
-    <div style="text-align: center; width: 50%; float: left">
+    <div style="text-align: center; width: 50%; float: left; margin-top: 10px">
       <button
         class="btn btn-primary"
         type="button"
-        style="text-align: center; width: 40%; margin: 10px"
+        style="text-align: center; width: 180px; margin: 10px"
         onclick="submit()"
       >
         RUN!
       </button>
+      <button
+        class="btn btn-danger"
+        style="margin-left: 55px"
+        onclick="window.localStorage.clear()"
+      >
+        Clear Cache
+      </button>
     </div>
 
-    <div style="text-align: center">
+    <div style="text-align: center; margin-top: 5px">
       <select
         style="margin-top: 15px; margin-left: 20px; height: 30px; width: 30%"
         id="select"

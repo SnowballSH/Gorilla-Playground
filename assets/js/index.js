@@ -87,14 +87,28 @@ cmdp.getWrapperElement().style.fontSize = "20px";
 cmdp.getWrapperElement().style.padding = "20px";
 cmdp.refresh();
 
+const localStorage = window.localStorage;
+
 function selectTheme() {
   const input = document.getElementById("select");
   const theme = input.options[input.selectedIndex].value;
   cm.setOption("theme", theme.trim().toLowerCase());
+  update();
+}
+
+function update() {
+  const input = document.getElementById("select");
+  localStorage.setItem("SAVECODE", cm.getValue());
+  localStorage.setItem("SAVETHEME", input.selectedIndex);
 }
 
 $(document).ready(function () {
+  if ((c = localStorage.getItem("SAVECODE"))) cm.setValue(c);
+  if ((c = localStorage.getItem("SAVETHEME"))) {
+    const input = document.getElementById("select");
+    input.options.selectedIndex = c;
+    selectTheme();
+  }
   $("select").on("change", selectTheme);
+  cm.on("change", update);
 });
-
-window.onbeforeunload = () => cm.getValue().trim().length() > 0;
