@@ -6,14 +6,14 @@ CodeMirror.defineSimpleMode("gorilla", {
       token: ["keyword", null, "variable"],
     },
     {
-      regex: /(?:func|let|return|if|while|else|fn)\b/,
+      regex: /(?:func|let|return|if|while|else|fn|break|next)\b/,
       token: "keyword",
     },
     {
-      regex: /(?:print|len|input)\b/,
+      regex: /(?:print|println|hash|debug|input)\b/,
       token: "variable-3",
     },
-    { regex: /true|false|null/, token: "atom" },
+    { regex: /true|false|null|GORILLA_VERSION/, token: "atom" },
     {
       regex: /[-+]?(?:\d+(\.\d*)?)/i,
       token: "number",
