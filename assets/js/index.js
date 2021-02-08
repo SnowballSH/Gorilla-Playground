@@ -6,7 +6,7 @@ CodeMirror.defineSimpleMode("gorilla", {
       token: ["keyword", null, "variable"],
     },
     {
-      regex: /(?:func|let|return|if|while|else|fn|break|next)\b/,
+      regex: /(?:func|let|return|if|while|else|fn|break|next|use)\b/,
       token: "keyword",
     },
     {
