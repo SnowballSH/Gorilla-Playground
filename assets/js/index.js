@@ -1,12 +1,14 @@
 CodeMirror.defineSimpleMode("gorilla", {
   start: [
     { regex: /"[\s\S]*?"/, token: "string" },
+    { regex: /'[\s\S]*?'/, token: "string" },
+    { regex: /`[\s\S]*?`/, token: "string" },
     {
       regex: /(func)(\s+)([\w$]+)/,
       token: ["keyword", null, "variable"],
     },
     {
-      regex: /(?:func|let|return|if|while|else|fn|break|next|use)\b/,
+      regex: /(?:func|let|return|if|while|else|fn|break|next|use|do|foreach)\b/,
       token: "keyword",
     },
     {
