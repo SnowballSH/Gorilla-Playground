@@ -61,21 +61,29 @@ let cmdp = new CodeMirror.fromTextArea(document.getElementById("display"), {
   readOnly: true,
 });
 
+/*
 const go = new Go();
 WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then(
   (result) => {
     go.run(result.instance);
   }
 );
+*/
 
 function submit() {
   code = cm.getValue();
-  /*
-  fetch(`https://gorilla.snowballsh.repl.co/${code}`)
-    .then((response) => response.text())
-    .then((data) => (document.getElementById("display").value = data));
-    */
-  cmdp.setValue(runGorilla(code));
+
+  cmdp.setValue("Compiling...");
+
+  $.post(
+    "https://gorilla-api.vercel.app/api/string",
+    { code: code },
+    function (data, status) {
+      cmdp.setValue(data);
+    }
+  );
+
+  //cmdp.setValue(runGorilla(code));
 }
 
 cm.setSize("100%", 400);
