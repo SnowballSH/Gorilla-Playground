@@ -17,11 +17,11 @@ CodeMirror.defineSimpleMode("gorilla", {
     },
     { regex: /true|false|null|GORILLA_VERSION/, token: "atom" },
     {
-      regex: /[-+]?(?:\d+(\.\d*)?)/i,
+      regex: /[-+]?(?:\d+(\.\d+)?)/i,
       token: "number",
     },
     { regex: /#.*/, token: "comment" },
-    { regex: /[-+\/*=<>!\|&]+/, token: "operator" },
+    { regex: /[-+\/*=<>!\|&\.]+/, token: "operator" },
     { regex: /[\{\[\(]/, indent: true },
     { regex: /[\}\]\)]/, dedent: true },
     { regex: /([\w]+)(\()/, token: ["variable", null] },
